@@ -52,11 +52,11 @@ class ArticlesController extends Controller
             'content' => 'required',
         ]);
 
-        if($request->file('thumbnail')->isValid()) {
-            $file = $request->file('thumbnail');
+        //if($request->file('thumbnail')->isValid()) {
+        //    $file = $request->file('thumbnail');
             //バケットに「test」フォルダを作っているとき
-            $path = Storage::disk('s3')->put('/thumbnail',$file, 'public');
-        }
+        //    $path = Storage::disk('s3')->put('/thumbnail',$file, 'public');
+        //}
         
         // 記事を作成
         $request->user()->articles()->create([
