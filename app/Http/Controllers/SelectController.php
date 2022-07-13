@@ -13,7 +13,7 @@ class SelectController extends Controller
         $guidelines = Article::where('category','guideline')->get();
      
         $data = [
-            'guidlines' => $guidelines,
+            'guidelines' => $guidelines,
         ];
         // 記事一覧ビューでそれを表示
         return view('articles.guidelines', $data);

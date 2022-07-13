@@ -1,5 +1,5 @@
 
-@foreach ($articles as $article)
+
 <div class="col-md-3">
     <a href="{{ route('articles.show', ['article'=>$article->id]) }}">
     <div class='card mb-2'>
@@ -14,4 +14,3 @@
     </div>
     </a>
 </div>
-@endforeach

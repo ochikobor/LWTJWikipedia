@@ -12,7 +12,9 @@
         
             <div class='row'>
                 @if(count($articles)>0)
-                    @include ('articles.article')
+                        @foreach ($articles as $article)
+                            @include ('articles.article')
+                        @endforeach 
                     @else
                     <h4>投稿がありません</h2>
                 @endif

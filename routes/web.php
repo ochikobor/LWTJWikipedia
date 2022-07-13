@@ -32,5 +32,5 @@ Route::group(['middleware' => ['auth']], function () {
 Route::get('search', 'SearchController@index')->name('search.index');
 
 //各カテゴリー
-Route::post('select', 'SelectController@guidelines')->name('select.guidelines');
-Route::get('select', 'SelectController@tutorials')->name('select.tutorials');
+Route::get('guidelines', 'SelectController@guidelines')->name('select.guidelines');
+Route::get('tutorials', 'SelectController@tutorials')->name('select.tutorials');

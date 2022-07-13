@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-        {!! Form::model($article, ['route' => 'articles.store']) !!}
+        {!! Form::model($article, ['route' => 'articles.store', 'enctype' => 'multipart/form-data'] ) !!}
             <div class="form-group mb-4">
                 {!! Form::label('category', 'カテゴリー')!!}
                 {{ Form::select('category',$category, old('category'), ['class' => 'my_class']) }}

@@ -4,7 +4,9 @@
     <h2>チュートリアル</h2>
     <div class="row mb-4">
         @if(count($guidelines)>0)
-            @include ('articles.article')
+            @foreach ($guidelines as $article)
+                @include ('articles.article')
+            @endforeach 
         @endif
     </div>
 

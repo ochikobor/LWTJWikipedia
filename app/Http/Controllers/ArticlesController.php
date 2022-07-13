@@ -8,6 +8,8 @@ use App\User;
 
 use App\Article;
 
+use Storage;
+
 class ArticlesController extends Controller
 {
     public function index()
@@ -50,13 +52,18 @@ class ArticlesController extends Controller
             'content' => 'required',
         ]);
 
-        //$file->storeAs('/', $file_name, 's3');
+        if($request->file('thumbnail')->isValid()) {
+            $file = $request->file('thumbnail');
+            //バケットに「test」フォルダを作っているとき
+            $path = Storage::disk('s3')->put('/thumbnail',$file, 'public');
+        }
+        
         // 記事を作成
         $request->user()->articles()->create([
             'title' => $request->title,
             'content' => $request->content,
             'category' => $request->category,
-            'thumbnail' => $request->thumbnail,
+            'thumbnail' => $path,
         ]);
 
         // トップページへリダイレクトさせる
