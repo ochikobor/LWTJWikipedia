@@ -63,7 +63,7 @@ class ArticlesController extends Controller
             'title' => $request->title,
             'content' => $request->content,
             'category' => $request->category,
-            'thumbnail' => $path,
+            'thumbnail' => $request->thumbnail,
         ]);
 
         // トップページへリダイレクトさせる
