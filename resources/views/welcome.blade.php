@@ -24,7 +24,9 @@
         <div>
             <h4 class="mb-4">注目記事</h4>
         
-        @if(file_exists($top_view))
+        @if(empty($top_view))
+            <h4>投稿はありません</h2>
+            @else
             <div>
                 <div class="bg-light">
                     <h2 class="pl-4 pt-4">{{ $top_view->title }}</h2>
@@ -33,8 +35,6 @@
                     <div class="ql-editor p-4">{!!$top_view->content !!}</div>
                 </div>
             </div>
-            @else
-            <h4>投稿はありません</h2>
             @endif
         </div>
         
