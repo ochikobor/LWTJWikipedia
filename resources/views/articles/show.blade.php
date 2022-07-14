@@ -24,6 +24,4 @@
         <div>{!!$article->content !!}</div>
     </div>
     @endif
-    
-    <h2>{{ $article->view_count }}</h2>
 @endsection
