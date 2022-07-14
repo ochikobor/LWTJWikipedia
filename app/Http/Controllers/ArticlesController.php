@@ -48,14 +48,14 @@ class ArticlesController extends Controller
         $request->validate([
             'title' => 'required|max:15',
             'category' => 'required',
-            'thumbnail' => 'required',
+        //    'thumbnail' => 'required',
             'content' => 'required',
         ]);
 
         //if($request->file('thumbnail')->isValid()) {
         //    $file = $request->file('thumbnail');
             //バケットに「test」フォルダを作っているとき
-        //    $path = Storage::disk('s3')->put('/thumbnail',$file, 'public');
+        //    $path = Storage::disk('s3')->put('/',$file, 'public');
         //}
         
         // 記事を作成
@@ -63,7 +63,7 @@ class ArticlesController extends Controller
             'title' => $request->title,
             'content' => $request->content,
             'category' => $request->category,
-            'thumbnail' => $request->thumbnail,
+        //    'thumbnail' => $path,
         ]);
 
         // トップページへリダイレクトさせる

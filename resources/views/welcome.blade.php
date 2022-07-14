@@ -34,19 +34,17 @@
                 </div>
             </div>
             @else
-            <h2>投稿はありません</h2>
+            <h4>投稿はありません</h2>
             @endif
         </div>
         
         
 
     @else
-        <div class="center jumbotron">
-            <div class="text-center">
-                <h1>LWTWikipedia</h1>
-                {{-- ユーザ登録ページへのリンク --}}
-                {!! link_to_route('signup.get', 'Sign up now!', [], ['class' => 'btn btn-lg btn-primary']) !!}
-            </div>
+        <div class="text-center">
+            <h1 class="text-primary">LWTWikipedia</h1>
+            {{-- ユーザ登録ページへのリンク --}}
+            {!! link_to_route('signup.get', 'Sign up now!', [], ['class' => 'btn btn-lg btn-primary']) !!}
         </div>
     @endif
 @endsection

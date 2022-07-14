@@ -10,10 +10,6 @@
                 {!! Form::label('title', 'タイトル')!!}
                 {!! Form::text('title', null, ['class' => 'form-control']) !!}
             </div>
-            <div class="form-group mb-4">
-                {!! Form::label('thumbnail', 'サムネイル') !!}
-                {!! Form::file('thumbnail', ['class' => 'form-control-file']) !!}
-            </div>
 
             <div id="editor" class="mb-4"></div>
             @include('commons.editor')
