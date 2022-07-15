@@ -89,11 +89,15 @@ class ArticlesController extends Controller
     {
         // idの値で記事を検索して取得
         $article = Article::findOrFail($id);
-
-        // 記事編集ビューでそれを表示
-        return view('articles.edit', [
+        
+        if(($article->category == 'tutorial')||(\Auth::id() === $article->user_id)){
+            return view('articles.edit', [
             'article' => $article,
-        ]);
+        ]);}else{
+            // トップページへリダイレクトさせる
+            return redirect('/');
+            
+        }
     }
 
     // putまたはpatchでarticles/（任意のid）にアクセスされた場合の「更新処理」
