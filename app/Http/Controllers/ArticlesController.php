@@ -105,7 +105,8 @@ class ArticlesController extends Controller
     {
           // バリデーション
         $request->validate([
-            'title' => 'required|max:15',   
+            'title' => 'required|max:15', 
+            'content' => 'required',
         ]);
         
         // idの値で記事を検索して取得
