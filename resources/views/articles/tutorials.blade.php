@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <h2>ガイドライン</h2>
+    <h2>チュートリアル</h2>
     <div class="row mb-4">
         @if(count($tutorials)>0)
             @foreach ($tutorials as $article)

@@ -14,7 +14,7 @@
                 
                 @include('commons.editor')
 
-                {!! Form::submit('一時保存', ['class' => 'btn btn-primary']) !!}
+                {!! Form::submit('登録', ['class' => 'btn btn-primary']) !!}
 
             {!! Form::close() !!}
         </div>

@@ -17,6 +17,13 @@
         @foreach ($articles as $article)
             <div class="list-group-item">
                 <h4>{{$article->title}}</h4>
+                <h4 class="badge badge-pill 
+                    @if($article->category === 'guideline')
+                    badge-primary
+                        @else
+                        badge-secondary
+                    @endif
+                ">{{ $article->category }}</h4>
                 <div style="display: flex; ">
                     {{--編集--}}
                     {!! link_to_route('articles.show', '詳細', ['article' => $article->id], ['class' => 'btn btn-secondary mr-2']) !!}
