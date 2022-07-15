@@ -30,14 +30,12 @@ class SearchController extends Controller
 
             // 単語をループで回し、ユーザーネームと部分一致するものがあれば、$queryとして保持される
             foreach($wordArraySearched as $value) {
-                $query->where('title', 'like', '%'.$value.'%');
-                $query->where('content', 'like', '%'.$value.'%');
+                $query->where('title', 'like', '%'.$value.'%')
+                    ->orWhere('content', 'like', '%'.$value.'%');
             }
-
             $search = $query->paginate(20);
-        }
         
         return view('articles.search',['search' => $search]);
-        
+        }  
     }
 }

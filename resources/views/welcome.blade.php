@@ -21,7 +21,7 @@
             </div>
         </div>
         
-        <div>
+        <div class="mb-4">
             <h4 class="mb-4">注目記事</h4>
         
         @if(empty($top_view))
@@ -42,7 +42,7 @@
 
     @else
         <div class="text-center">
-            <h1 class="text-primary">LWTWikipedia</h1>
+            <h1 class="text-secondary">LWTWikipedia</h1>
             {{-- ユーザ登録ページへのリンク --}}
             {!! link_to_route('signup.get', 'Sign up now!', [], ['class' => 'btn btn-lg btn-primary']) !!}
         </div>
