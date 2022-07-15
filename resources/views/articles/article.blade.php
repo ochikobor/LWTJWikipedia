@@ -1,6 +1,12 @@
 <div class="card col-md-3 m-1">
     <div class="card-body">
-        <h4 class="badge badge-pill badge-primary">{{ $article->category }}</h4>
+        <h4 class="badge badge-pill 
+        @if($article->category === 'guideline')
+        badge-primary
+            @else
+            badge-secondary
+        @endif
+        ">{{ $article->category }}</h4>
         <h5 class="card-title">{{ $article->title }}</h5>
         <a href="{{ route('users.show',[$article->user]) }}" class="badge badge-light">{{$article->user->name }}</a>
         <div class="text-right">
