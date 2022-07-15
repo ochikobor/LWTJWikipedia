@@ -1,4 +1,4 @@
-<input type="hidden" id="editor-input" name="content">
+<input type="hidden" id="editor-input" name="content" value="{{$article->content}}">
 <script>
     var editor = document.getElementById('editor');
     var editorInput = document.getElementById('editor-input');
