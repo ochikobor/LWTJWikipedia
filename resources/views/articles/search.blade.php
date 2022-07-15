@@ -7,6 +7,13 @@
         @if(count($search)>0)
             @foreach ($search as $search)
             <div class="list-group-item">
+                <h4 class="badge badge-pill 
+                    @if($search->category === 'guideline')
+                    badge-primary
+                        @else
+                        badge-secondary
+                    @endif
+                ">{{ $search->category }}</h4>
                 <h2>{{ $search->title }}</h2>
                 
                 <div style="display: flex; ">
