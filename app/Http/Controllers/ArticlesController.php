@@ -46,8 +46,8 @@ class ArticlesController extends Controller
     {
         // バリデーション
         $request->validate([
-            'title' => 'required|max:15',
             'category' => 'required',
+            'title' => 'required|max:15',
         //    'thumbnail' => 'required',
             'content' => 'required',
         ]);
@@ -60,9 +60,9 @@ class ArticlesController extends Controller
         
         // 記事を作成
         $request->user()->articles()->create([
+            'category' => $request->category,
             'title' => $request->title,
             'content' => $request->content,
-            'category' => $request->category,
         //    'thumbnail' => $path,
         ]);
 
