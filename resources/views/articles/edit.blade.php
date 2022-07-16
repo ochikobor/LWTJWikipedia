@@ -13,7 +13,7 @@
                 <div id="editor" class="mb-4">{!! $article->content !!}</div>
                 
                 @include('commons.editor')
-
+                <input type="hidden" name="id" value="{{ $article->id }}">
                 {!! Form::submit('登録', ['class' => 'btn btn-primary']) !!}
 
             {!! Form::close() !!}

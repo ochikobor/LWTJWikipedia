@@ -108,13 +108,13 @@ class ArticlesController extends Controller
             'title' => 'required|max:15', 
             'content' => 'required',
         ]);
-        
         // idの値で記事を検索して取得
         $article = Article::findOrFail($id);
         
         // 記事を更新
         $article->title = $request->title; 
         $article->content = $request->content;
+        dd($article);
         $article->save();
 
         // トップページへリダイレクトさせる

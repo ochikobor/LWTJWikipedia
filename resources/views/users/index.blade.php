@@ -12,11 +12,10 @@
 </div>
 
 <div class="list-group">
-    <h2>投稿履歴</h2>
+    <h2 class="text-2xl mb-4">投稿履歴</h2>
     @if (count($articles) > 0)
         @foreach ($articles as $article)
-            <div class="list-group-item">
-                <h4>{{$article->title}}</h4>
+            <a href="{{ route('articles.show',['article' => $article->id])}}" class="block p-6 bg-white rounded-lg border border-gray-200 shadow-md hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
                 <h4 class="badge badge-pill 
                     @if($article->category === 'guideline')
                     badge-primary
@@ -24,15 +23,9 @@
                         badge-secondary
                     @endif
                 ">{{ $article->category }}</h4>
-                <div style="display: flex; ">
-                    {{--編集--}}
-                    {!! link_to_route('articles.show', '詳細', ['article' => $article->id], ['class' => 'btn btn-secondary mr-2']) !!}
-                    {{-- 投稿削除ボタンのフォーム --}}
-                    {!! Form::open(['route' => ['articles.destroy', $article->id], 'method' => 'delete']) !!}
-                        {!! Form::submit('削除', ['class' => 'btn btn-danger']) !!}
-                    {!! Form::close() !!}                    
-                </div>
-            </div>
+                <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{{$article->title}}</h5>
+                <p class="font-normal text-gray-700 dark:text-gray-400">Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order.</p>
+            </a>
         @endforeach
     @else
         <h2>投稿はありません</h2>

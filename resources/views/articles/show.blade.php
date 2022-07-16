@@ -18,16 +18,16 @@
             </div>
         @endif
         <div class="mb-4">
-            <h2>{{ $article->title }}</h2>
-            <h4 class="badge badge-pill 
-                @if($article->category === 'guideline')
-                badge-primary
-                    @else
-                    badge-secondary
-                @endif
+            <h4 class="badge badge-pill mb-2
+            @if($article->category === 'guideline')
+            badge-primary
+                @else
+                badge-secondary
+            @endif
             ">{{ $article->category }}</h4>
-            <a class="card-text mr-4" href="{{ route('users.show',[$article->user]) }}">{{$article->user->name }}</a>
-            <h6 class="card-subtitle">{{ $article->created_at }}</h6>
+            <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{{ $article->title }}</h5>
+            <a href="{{ route('users.show',[$article->user]) }}" class="badge badge-light mb-2">{{$article->user->name }}</a>
+            <h6 class="mb-2 font-normal text-gray-700 dark:text-gray-400">{{ $article->created_at }}</h6>
         </div>
     
         <div class="ql-editor">
