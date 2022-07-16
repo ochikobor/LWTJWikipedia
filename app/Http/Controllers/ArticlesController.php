@@ -50,22 +50,22 @@ class ArticlesController extends Controller
         $request->validate([
             'category' => 'required',
             'title' => 'required|max:30',
-        //    'thumbnail' => 'required',
+            'thumbnail' => 'required',
             'content' => 'required',
         ]);
 
-        //if($request->file('thumbnail')->isValid()) {
-        //    $file = $request->file('thumbnail');
+        if($request->file('thumbnail')->isValid()) {
+            $file = $request->file('thumbnail');
             //バケットに「test」フォルダを作っているとき
-        //    $path = Storage::disk('s3')->put('/',$file, 'public');
-        //}
+            $path = Storage::disk('s3')->put('/',$file, 'public');
+        }
         
         // 記事を作成
         $request->user()->articles()->create([
             'category' => $request->category,
             'title' => $request->title,
             'content' => $request->content,
-        //    'thumbnail' => $path,
+            'thumbnail' => $path,
         ]);
 
         // トップページへリダイレクトさせる
@@ -86,7 +86,6 @@ class ArticlesController extends Controller
         // 記事詳細ビューでそれを表示
         return view('articles.show', [
             'article' => $article,
-            //'backups' => $backups,
         ]);
     }
 
@@ -117,9 +116,18 @@ class ArticlesController extends Controller
         // idの値で記事を検索して取得
         $article = Article::findOrFail($id);
         
+        $backup = new Backup;
+        $backup->title = $article->title;
+        $backup->thumbnail = $article->thumbnail;
+        $backup->content = $article->content;
+        $backup->article_id = $article->id;
+        $backup->user_id = $article->user_id;
+        $backup->save();
+        
         // 記事を更新
         $article->title = $request->title; 
         $article->content = $request->content;
+        //$article->thumbnail = $request->thumbnail;
         $article->save();
 
         // トップページへリダイレクトさせる

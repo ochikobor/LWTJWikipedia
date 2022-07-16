@@ -15,6 +15,12 @@ module.exports = {
             
         }
   },
-  variants: {},
-  plugins: [],
+    content: [
+    'node_modules/preline/dist/*.js',
+    "./node_modules/flowbite/**/*.js",
+    ],
+    plugins: [
+        require('preline/plugin'),
+        require("flowbite/plugin"),
+    ]
 }

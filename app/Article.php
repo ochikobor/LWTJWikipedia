@@ -18,7 +18,7 @@ class Article extends Model
     }
     
    
-    public static function backups() {
+    public function backups() {
         return $this->hasMany(Backup::class);
     }
 }
