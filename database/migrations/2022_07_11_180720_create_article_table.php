@@ -18,7 +18,7 @@ class CreateArticleTable extends Migration
           $table->unsignedBigInteger('user_id');
           $table->string('title',30);
           $table->text('content');
-          $table->string('thumbnail');
+          //$table->string('thumbnail');
           $table->integer('view_count')->default(0);
           $table->timestamps();
     

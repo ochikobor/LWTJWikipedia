@@ -50,22 +50,22 @@ class ArticlesController extends Controller
         $request->validate([
             'category' => 'required',
             'title' => 'required|max:30',
-            'thumbnail' => 'required',
+        //    'thumbnail' => 'required',
             'content' => 'required',
         ]);
 
-        if($request->file('thumbnail')->isValid()) {
-            $file = $request->file('thumbnail');
+        //if($request->file('thumbnail')->isValid()) {
+        //    $file = $request->file('thumbnail');
             //バケットに「test」フォルダを作っているとき
-            $path = Storage::disk('s3')->put('/',$file, 'public');
-        }
+        //    $path = Storage::disk('s3')->put('/',$file, 'public');
+        //}
         
         // 記事を作成
         $request->user()->articles()->create([
             'category' => $request->category,
             'title' => $request->title,
             'content' => $request->content,
-            'thumbnail' => $path,
+        //    'thumbnail' => $path,
         ]);
 
         // トップページへリダイレクトさせる
@@ -118,7 +118,7 @@ class ArticlesController extends Controller
         
         $backup = new Backup;
         $backup->title = $article->title;
-        $backup->thumbnail = $article->thumbnail;
+        //$backup->thumbnail = $article->thumbnail;
         $backup->content = $article->content;
         $backup->article_id = $article->id;
         $backup->user_id = $article->user_id;
