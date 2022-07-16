@@ -33,5 +33,18 @@
         <div class="ql-editor">
             <div>{!!$article->content !!}</div>
         </div>
+        
+        <div class="list-group">
+            <h2 class="text-2xl mb-4">投稿履歴</h2>
+            @if (empty($backups))
+            @else
+                @foreach ($backups as $backup)
+                    <a class="block p-6 bg-white rounded-lg border border-gray-200 shadow-md hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
+                        <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{{$backup->title}}</h5>
+                        <p class="font-normal text-gray-700 dark:text-gray-400">{{$backup->created_at}}</p>
+                    </a>
+                @endforeach
+            @endif        
+        </div>
     @endif
 @endsection

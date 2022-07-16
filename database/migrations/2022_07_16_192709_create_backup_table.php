@@ -13,7 +13,7 @@ class CreateBackupTable extends Migration
      */
     public function up()
     {
-        Schema::create('backup', function (Blueprint $table) {
+        Schema::create('backups', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('article');
             $table->unsignedBigInteger('article_id');
@@ -32,6 +32,6 @@ class CreateBackupTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('backup');
+        Schema::dropIfExists('backups');
     }
 }

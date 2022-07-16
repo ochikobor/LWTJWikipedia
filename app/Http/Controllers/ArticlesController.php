@@ -8,6 +8,8 @@ use App\User;
 
 use App\Article;
 
+use App\Backup;
+
 use Storage;
 
 class ArticlesController extends Controller
@@ -77,10 +79,14 @@ class ArticlesController extends Controller
         $article = Article::findOrFail($id);
         $article->view_count += 1;
         $article->save();
+
+        //$backups = Article::backups()->orderBy('created_at','desc');
+        //dd($backups);
         
         // 記事詳細ビューでそれを表示
         return view('articles.show', [
             'article' => $article,
+            //'backups' => $backups,
         ]);
     }
 
@@ -114,7 +120,6 @@ class ArticlesController extends Controller
         // 記事を更新
         $article->title = $request->title; 
         $article->content = $request->content;
-        dd($article);
         $article->save();
 
         // トップページへリダイレクトさせる

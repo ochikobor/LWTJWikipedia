@@ -4,7 +4,9 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-use App\Traits\BackupTrait; 
+use App\User;
+
+use App\Backup;
 
 class Article extends Model
 {
@@ -14,6 +16,9 @@ class Article extends Model
     {
         return $this->belongsTo(User::class);
     }
-
-
+    
+   
+    public static function backups() {
+        return $this->hasMany(Backup::class);
+    }
 }
