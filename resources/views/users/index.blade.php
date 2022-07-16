@@ -24,7 +24,7 @@
                     @endif
                 ">{{ $article->category }}</h4>
                 <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{{$article->title}}</h5>
-                <p class="font-normal text-gray-700 dark:text-gray-400">Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order.</p>
+                <p class="font-normal text-gray-700 dark:text-gray-400">{{$article->created_at}}</p>
             </a>
         @endforeach
     @else
