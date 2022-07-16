@@ -9,11 +9,7 @@
                     {!! Form::label('title', 'タイトル')!!}
                     {!! Form::text('title', null, ['class' => 'form-control']) !!}
                 </div>
-                <!--<div class="form-group mb-4">
-                    {!! Form::label('title', 'サムネイル')!!}
-                    {!! Form::file('thumbnail', null, ['class' => 'form-control']) !!}
-                </div>
-                -->
+
 
                 <div id="editor" class="mb-4">{!! $article->content !!}</div>
                 

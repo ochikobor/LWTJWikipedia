@@ -1,7 +1,5 @@
 <div class="m-2 bg-white h-auto rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
-    <!--<div class="bg-top h-2/5 w-full">
-        <img src="{{ Storage::disk('s3')->url("$article->thumbnail") }}" alt=""  />
-    </div>-->
+
     <div class="p-4">
         <h4 class="badge badge-pill mb-2
             @if($article->category === 'guideline')

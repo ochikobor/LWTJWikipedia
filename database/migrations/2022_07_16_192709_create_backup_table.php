@@ -18,7 +18,7 @@ class CreateBackupTable extends Migration
             $table->unsignedBigInteger('article_id');
             $table->unsignedBigInteger('user_id');
             $table->text('title',30);
-            $table->string('thumbnail');
+            //$table->string('thumbnail');
             $table->text('content');
             $table->timestamps();
     
