@@ -37,13 +37,11 @@
         @if(empty($top_view))
             <h4 class="text-xl">投稿はありません</h2>
             @else
-            <div>
-                <div class="bg-light">
-                    <h2 class="pl-4 pt-4">{{ $top_view->title }}</h2>
-                    <h6 class="pl-4">{{ $top_view->user->name }}</h6>
-                    
-                    <div class="ql-editor p-4">{!!$top_view->content !!}</div>
-                </div>
+            <div class="bg-light">
+                <h2 class="pl-4 pt-4">{{ $top_view->title }}</h2>
+                <h6 class="pl-4">{{ $top_view->user->name }}</h6>
+                
+                <div class="ql-editor">{!!$top_view->content !!}</div>
             </div>
             @endif
         </div>
