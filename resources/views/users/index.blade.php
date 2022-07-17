@@ -15,7 +15,7 @@
     <h2 class="text-2xl mb-4">投稿履歴</h2>
     @if (count($articles) > 0)
         @foreach ($articles as $article)
-            <a href="{{ route('articles.show',['article' => $article->id])}}" class="block p-6 bg-white rounded-lg border border-gray-200 shadow-md hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
+            <a href="{{ route('articles.show',['article' => $article->id])}}" class="block p-6 m-2 bg-white rounded-lg border border-gray-200 shadow-md hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
                 <h4 class="badge badge-pill 
                     @if($article->category === 'guideline')
                     badge-primary

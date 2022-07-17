@@ -125,10 +125,16 @@ class ArticlesController extends Controller
         $backup->save();
         
         // 記事を更新
-        $article->title = $request->title; 
-        $article->content = $request->content;
+        $request->user()->articles()->update([
+            'title' => $request->title,
+            'category' => $article->category,
+            'content' => $request->content,
+        //    'thumbnail' => $path,
+        ]);
+        //$article->title = $request->title; 
+        //$article->content = $request->content;
         //$article->thumbnail = $request->thumbnail;
-        $article->save();
+        //$article->save();
 
         // トップページへリダイレクトさせる
         return redirect('/');
